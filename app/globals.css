@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Theme tokens */
+/* =========================
+   Theme Tokens
+========================= */
 :root {
   --bg: #f8fafc;
   --fg: #0f172a;
@@ -17,28 +19,96 @@ html, body {
 body {
   background: var(--bg);
   color: var(--fg);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* reusable helpers */
-.glass-effect{
-  background: rgba(255,255,255,.70);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,.25);
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+/* =========================
+   Layout Helpers
+========================= */
+.container-custom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.gradient-text{
+@media (min-width: 640px) {
+  .container-custom {
+    padding: 0 2rem;
+  }
+}
+
+/* =========================
+   Premium Glass Effect
+========================= */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.20);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.30);
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.10);
+
+  border-radius: 24px;
+  transition: all 0.3s ease;
+}
+
+.glass-effect:hover {
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   Gradient Utilities
+========================= */
+.gradient-text {
   background: linear-gradient(90deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.gradient-bg{
+.gradient-bg {
   background: linear-gradient(90deg, var(--primary), var(--secondary));
 }
 
-/* Animations */
+/* =========================
+   Marvel / Neon Effects
+========================= */
+.neon-text {
+  text-shadow:
+    0 0 5px rgba(124, 58, 237, 0.6),
+    0 0 10px rgba(124, 58, 237, 0.4),
+    0 0 20px rgba(124, 58, 237, 0.25);
+}
+
+.glow-btn {
+  transition: all 0.3s ease;
+}
+
+.glow-btn:hover {
+  box-shadow:
+    0 0 10px rgba(124, 58, 237, 0.5),
+    0 0 20px rgba(99, 102, 241, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Hero animated energy background */
+.hero-energy-bg {
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.12),
+    rgba(99, 102, 241, 0.12),
+    rgba(124, 58, 237, 0.12)
+  );
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* =========================
+   Animations
+========================= */
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
