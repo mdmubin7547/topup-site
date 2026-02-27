@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme tokens */
+:root {
+  --bg: #f8fafc;
+  --fg: #0f172a;
+  --primary: #7c3aed;
+  --secondary: #6366f1;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* reusable helpers */
+.glass-effect{
+  background: rgba(255,255,255,.70);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.25);
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.gradient-text{
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-bg{
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+/* Animations */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(8deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
